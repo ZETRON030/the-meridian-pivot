@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: northstar-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: northstar
+      POSTGRES_USER: northstar
+      POSTGRES_PASSWORD: northstar
+    ports:
+      - "5432:5432"
+    volumes:
+      - northstar_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  northstar_postgres_data:
