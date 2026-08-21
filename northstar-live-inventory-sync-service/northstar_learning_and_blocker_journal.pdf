@@ -21,9 +21,7 @@ Fastify TypeScript documentation | Confirmed Fastify TypeScript setup, the need 
 Fastify Getting Started | Confirmed the basic Fastify application/startup pattern used by the prototype. | https://fastify.dev/docs/v5.11.x/Guides/Getting-Started/
 Project source files | The prototype’s package.json, tsconfig.json, server.ts, db.ts, sync.ts, worker.ts and schema.sql were used as the primary implementation reference. | Local project files
 node-postgres Pool documentation | Confirmed Pool/pool.connect usage and the rule that a single checked-out client must be used for a transaction; this matches sync.ts. | https://node-postgres.com/apis/pool
-Zod documentation | Confirmed Zod's TypeScript-first schema validation and parse-based validation used for the inventory request payload. | https://zod.dev/
-
-Note: The troubleshooting evidence in this journal comes directly from the three supplied screenshots. The screenshots show TypeScript/editor diagnostics rather than confirmed runtime failures; therefore the journal distinguishes observed errors from their likely root causes.
+Zod documentation | Confirmed Zod's TypeScript-first schema validation and parse-based validation used for the inventory request payload. | 
 
 3. Error and Blocker Log
 File | Location | Observed error | Diagnosis | Troubleshooting action
