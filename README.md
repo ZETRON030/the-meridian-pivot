@@ -48,7 +48,23 @@ No teammate or instructor gives technical how-to help during Days 1–2 - that's
 The Day 4 pivot is delivered as final: no deadline extension, no negotiating scope back to the original spec.
 Obsolete code from before the pivot must be visibly removed or marked deprecated - not left running in parallel.
 
+## Pivot Event
+
+Client:Solstice Events Co.
+   
+#  GOAL 
+A mandatory technical shift for a badge-printing kiosk service being developed for Solstice Events Co.
+
+Original Technology Stack: Synchronous model requiring QR code scanning.
+
+The Pivot: The system has to be rebuilt to correct vendor's dupricating the synchronous API.
+
+New Technology Stack: Asynchronous model were a print request will be published to a message queue and impelement a webhook endpoint to receive complete callback.
+
+# Call to Action:
+Using a new technology, provide the above solution for Solstice Events Co.
+
 The Adaptability Index is confidential and never shared verbatim between teammates; only aggregate patterns may be released.
 
 ## Project Status
-In progress
+   Completed
