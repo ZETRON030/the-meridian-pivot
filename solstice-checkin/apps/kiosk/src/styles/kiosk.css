@@ -1,0 +1,453 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  background: #f4f6f8;
+  color: #1f2933;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* ============================================================
+   KIOSK LAYOUT
+   ============================================================ */
+
+.kiosk-container {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+}
+
+.kiosk-card {
+  width: min(720px, 100%);
+
+  min-height: 680px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+
+  overflow: hidden;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.kiosk-header {
+  padding: 32px 24px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.kiosk-header h1 {
+  margin: 0;
+
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.kiosk-header p {
+  margin: 8px 0 0;
+
+  font-size: 16px;
+
+  color: #6b7280;
+}
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+
+.kiosk-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 24px;
+
+  text-align: center;
+}
+
+.kiosk-content h2 {
+  margin: 0 0 16px;
+
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+.kiosk-content p {
+  max-width: 500px;
+
+  margin: 8px auto;
+
+  line-height: 1.6;
+
+  color: #4b5563;
+}
+
+/* ============================================================
+   PRIMARY BUTTON
+   ============================================================ */
+
+.primary-button {
+  min-width: 240px;
+
+  margin-top: 24px;
+
+  padding: 14px 24px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: #1f2937;
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.primary-button:hover {
+  opacity: 0.9;
+}
+
+.primary-button:active {
+  transform: scale(0.98);
+}
+
+.primary-button:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   QR SCANNER
+   ============================================================ */
+
+.qr-scanner-container {
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.qr-scanner {
+  width: 100%;
+  max-width: 360px;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+}
+
+.qr-scanner video {
+  width: 100% !important;
+
+  border-radius: 16px;
+}
+
+.scanner-message {
+  margin-top: 20px;
+}
+
+.scanner-instruction {
+  margin-top: 20px;
+
+  font-size: 15px;
+}
+
+.scanner-error {
+  width: 100%;
+
+  margin-top: 20px;
+  padding: 16px;
+
+  border-radius: 10px;
+
+  background: #fef2f2;
+
+  color: #991b1b;
+}
+
+.scanner-error p {
+  margin: 4px auto;
+
+  color: #991b1b;
+}
+
+/* ============================================================
+   CHECK-IN STATUS
+   ============================================================ */
+
+.check-in-status {
+  width: 100%;
+  max-width: 520px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  padding: 24px;
+
+  border-radius: 16px;
+}
+
+.check-in-status h2 {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.check-in-status p {
+  margin: 6px auto;
+}
+
+/* ============================================================
+   STATUS ICON
+   ============================================================ */
+
+.status-icon {
+  width: 88px;
+  height: 88px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.success-icon {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.error-icon {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.duplicate-icon {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.pending-icon {
+  background: #dbeafe;
+  color: #1d4ed8;
+
+  animation: pending-pulse 1.5s ease-in-out infinite;
+}
+
+.pending-icon span {
+  display: inline-block;
+
+  min-width: 36px;
+
+  text-align: left;
+}
+
+/* ============================================================
+   PENDING STATE
+   ============================================================ */
+
+.check-in-status.pending {
+  background: #eff6ff;
+}
+
+.check-in-status.pending h2 {
+  color: #1d4ed8;
+}
+
+/* ============================================================
+   CONFIRMED STATE
+   ============================================================ */
+
+.check-in-status.confirmed {
+  background: #f0fdf4;
+}
+
+.check-in-status.confirmed h2 {
+  color: #166534;
+}
+
+/* ============================================================
+   FAILED STATE
+   ============================================================ */
+
+.check-in-status.failed {
+  background: #fef2f2;
+}
+
+.check-in-status.failed h2 {
+  color: #991b1b;
+}
+
+/* ============================================================
+   DUPLICATE STATE
+   ============================================================ */
+
+.check-in-status.duplicate {
+  background: #fffbeb;
+}
+
+.check-in-status.duplicate h2 {
+  color: #92400e;
+}
+
+/* ============================================================
+   ATTENDEE REFERENCE
+   ============================================================ */
+
+.attendee-reference {
+  margin-top: 18px !important;
+
+  font-size: 14px !important;
+  font-weight: 600;
+
+  color: #6b7280 !important;
+}
+
+/* ============================================================
+   ERROR MESSAGE
+   ============================================================ */
+
+.error-message {
+  margin-top: 16px !important;
+
+  color: #991b1b !important;
+
+  font-weight: 500;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.kiosk-footer {
+  padding: 18px 24px;
+
+  text-align: center;
+
+  border-top: 1px solid #e5e7eb;
+
+  color: #6b7280;
+}
+
+.kiosk-footer small {
+  font-size: 13px;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes pending-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+/* ============================================================
+   RESPONSIVE KIOSK DISPLAY
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .kiosk-container {
+    padding: 12px;
+  }
+
+  .kiosk-card {
+    min-height: calc(100vh - 24px);
+
+    border-radius: 14px;
+  }
+
+  .kiosk-header {
+    padding: 24px 16px;
+  }
+
+  .kiosk-header h1 {
+    font-size: 24px;
+  }
+
+  .kiosk-content {
+    padding: 32px 16px;
+  }
+
+  .kiosk-content h2 {
+    font-size: 26px;
+  }
+
+  .status-icon {
+    width: 72px;
+    height: 72px;
+
+    font-size: 34px;
+  }
+
+  .primary-button {
+    width: 100%;
+    max-width: 320px;
+  }
+}
